@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" role="img" aria-label="VIG Odontologia">
+<defs>
+  <linearGradient id="vg-rosto-a" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FBF3E4"/><stop offset="0.55" stop-color="#EBD6B0"/><stop offset="1" stop-color="#D4B37E"/>
+  </linearGradient>
+  <linearGradient id="vg-rosto-b" x1="1" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F3E3C4"/><stop offset="1" stop-color="#D2B07A"/>
+  </linearGradient>
+  <linearGradient id="vg-cabelo" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#D2AE6F"/><stop offset="1" stop-color="#A97F3F"/>
+  </linearGradient>
+  <linearGradient id="vg-implante" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#B58B4A"/><stop offset="0.35" stop-color="#EBD3A2"/><stop offset="0.7" stop-color="#D3AF6E"/><stop offset="1" stop-color="#A57A3A"/>
+  </linearGradient>
+  <linearGradient id="vg-base" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EBD6B0"/><stop offset="1" stop-color="#B58B4A"/>
+  </linearGradient>
+</defs>
+
+<!-- perfil de trás (direita), com a crista de cabelo em chama -->
+<path stroke="#A97F3F" stroke-opacity="0.5" stroke-width="1.6" stroke-linejoin="round" fill="url(#vg-rosto-b)" d="M160,44 C190,40 214,60 216,90 C217,100 215,108 214,114 C224,122 232,130 238,140 C232,144 226,146 222,147 C224,153 224,157 221,160 C224,165 224,169 220,173 C224,182 222,190 214,196 C204,204 192,206 186,214 L184,270 L160,300 C168,200 168,110 160,44 Z"/>
+<path fill="url(#vg-cabelo)" d="M156,52 C146,30 164,18 158,2 C178,12 186,26 183,42 C193,31 205,28 214,30 C207,43 209,58 217,80 C202,60 180,50 156,52 Z"/>
+
+<!-- perfil da frente (esquerda) -->
+<path stroke="#A97F3F" stroke-opacity="0.5" stroke-width="1.6" stroke-linejoin="round" fill="url(#vg-rosto-a)" d="M156,16 C120,14 90,40 86,84 C85,100 88,108 90,116 C80,132 66,148 60,158 C64,164 74,166 82,168 C80,176 80,182 84,187 C80,192 80,196 85,200 C82,208 84,214 90,220 C84,232 86,244 98,250 C112,252 124,256 130,266 L134,304 L164,304 C170,200 172,110 156,16 Z"/>
+<!-- cabelo do perfil da frente -->
+<path fill="url(#vg-cabelo)" d="M156,16 C120,14 90,40 86,84 C98,60 124,46 146,50 C158,52 164,62 165,84 C168,130 169,190 166,250 C172,160 174,70 156,16 Z"/>
+<!-- linha de encontro dos dois perfis -->
+<path fill="none" stroke="#9C7234" stroke-width="3.2" stroke-linecap="round" d="M156,16 C172,70 170,200 164,304"/>
+
+<!-- implante: ombro, corpo rosqueado e ponta -->
+<g transform="translate(150 0) scale(1.3 1) translate(-150 0)">
+<path fill="url(#vg-implante)" d="M116,290 C116,284 126,280 150,280 C174,280 184,284 184,290 L178,300 L172,388 C172,394 162,398 150,398 C138,398 128,394 128,388 L122,300 Z"/>
+<g fill="none" stroke="#8F6428" stroke-width="2.6" stroke-linecap="round" opacity="0.85">
+  <path d="M121,312 Q150,320 179,312"/>
+  <path d="M123,326 Q150,334 177,326"/>
+  <path d="M124,340 Q150,348 176,340"/>
+  <path d="M125,354 Q150,362 175,354"/>
+  <path d="M127,368 Q150,375 173,368"/>
+  <path d="M129,381 Q150,388 171,381"/>
+</g>
+<path fill="none" stroke="#FFF6E2" stroke-width="2" stroke-linecap="round" opacity="0.7" d="M133,296 L137,386"/>
+
+</g>
+
+<!-- base oval -->
+<path fill="url(#vg-base)" d="M10,404 C10,396 60,392 150,392 C240,392 290,396 290,404 C290,412 240,418 150,418 C60,418 10,412 10,404 Z"/>
+<path fill="none" stroke="#FFF1D4" stroke-width="1.6" opacity="0.8" d="M26,400 C70,396 230,396 274,400"/>
+</svg>

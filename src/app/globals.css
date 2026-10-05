@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   VIG Odontologia — design tokens
+   Tudo que é decisão visual mora aqui. Trocar a identidade = trocar este bloco.
+   ========================================================================== */
+
+@theme {
+  /* cor */
+  --color-grafite: #1a1a1a;
+  --color-grafite-fundo: #121212;
+  --color-grafite-alto: #242424;
+  --color-pedra: #ededeb;
+  --color-pedra-fria: #e5e5e5;
+  --color-branco: #ffffff;
+  --color-ouro: #c5a059;
+  --color-ouro-vivo: #d4af37;
+  --color-ouro-texto: #7a5f26;
+  --color-nevoa: #a1a1aa;
+  --color-chumbo: #5c5c62;
+  --color-violeta: #7c3aed;
+
+  /* tipografia */
+  --font-display: var(--font-newsreader), "Times New Roman", serif;
+  --font-sans: var(--font-instrument), system-ui, sans-serif;
+
+  /* raio: arquitetura, não "app". Só 0 e 2px. */
+  --radius-nenhum: 0px;
+  --radius-fino: 2px;
+
+  /* sombra: uma só, para o que flutua sobre o conteúdo */
+  --shadow-flutuante: 0 10px 30px -12px rgb(0 0 0 / 0.45);
+
+  /* movimento */
+  --ease-vig: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-rapido: 220ms;
+  --duration-medio: 600ms;
+  --duration-lento: 1100ms;
+
+  /* container e ritmo vertical */
+  --container-vig: 82rem;
+  --gutter: clamp(1.25rem, 0.6rem + 3.2vw, 3.5rem);
+  --space-secao: clamp(5.5rem, 3.5rem + 8vw, 11rem);
+  --space-secao-curta: clamp(4rem, 2.5rem + 5vw, 7.5rem);
+
+  --breakpoint-3xl: 100rem;
+}
+
+@layer components {
+/* tons de seção: cada seção declara se é clara ou escura e os filhos herdam */
+.tom-claro {
+  --fg: var(--color-grafite-fundo);
+  --muted: var(--color-chumbo);
+  --line: rgb(18 18 18 / 0.16);
+  --accent: var(--color-ouro-texto);
+  --accent-line: var(--color-ouro);
+  --surface: var(--color-pedra-fria);
+  background: var(--color-pedra);
+  color: var(--fg);
+}
+.tom-branco {
+  --fg: var(--color-grafite-fundo);
+  --muted: var(--color-chumbo);
+  --line: rgb(18 18 18 / 0.14);
+  --accent: var(--color-ouro-texto);
+  --accent-line: var(--color-ouro);
+  --surface: var(--color-pedra);
+  background: var(--color-branco);
+  color: var(--fg);
+}
+.tom-escuro {
+  --fg: var(--color-branco);
+  --muted: var(--color-nevoa);
+  --line: rgb(255 255 255 / 0.16);
+  --accent: var(--color-ouro);
+  --accent-line: var(--color-ouro);
+  --surface: var(--color-grafite-alto);
+  background: var(--color-grafite);
+  color: var(--fg);
+}
+.tom-fundo {
+  --fg: var(--color-branco);
+  --muted: var(--color-nevoa);
+  --line: rgb(255 255 255 / 0.16);
+  --accent: var(--color-ouro);
+  --accent-line: var(--color-ouro);
+  --surface: var(--color-grafite-alto);
+  background: var(--color-grafite-fundo);
+  color: var(--fg);
+}
+.tom-ouro {
+  --fg: var(--color-grafite-fundo);
+  --muted: rgb(18 18 18 / 0.72);
+  --line: rgb(18 18 18 / 0.28);
+  --accent: var(--color-grafite-fundo);
+  --accent-line: var(--color-grafite-fundo);
+  background: var(--color-ouro);
+  color: var(--fg);
+}
+
+.t-muted { color: var(--muted); }
+.t-accent { color: var(--accent); }
+.b-line { border-color: var(--line); }
+}
+
+/* base */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  background: var(--color-grafite-fundo);
+  color: var(--color-branco);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: rgb(197 160 89 / 0.25); }
+::selection { background: var(--color-ouro); color: var(--color-grafite-fundo); }
+
+/* foco visível em todo o site */
+:focus-visible {
+  outline: 2px solid var(--accent-line, var(--color-ouro));
+  outline-offset: 3px;
+}
+
+@layer components {
+/* escala tipográfica — display em Newsreader (leve, ótica automática), UI em Instrument Sans */
+.display-xl,
+.display-lg,
+.display-md {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-optical-sizing: auto;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+.display-xl { font-size: clamp(2.6rem, 1.35rem + 4.7vw, 5.4rem); line-height: 1.02; }
+.display-lg { font-size: clamp(2.1rem, 1.2rem + 3.3vw, 4.1rem); line-height: 1.06; }
+.display-md { font-size: clamp(1.65rem, 1.15rem + 1.9vw, 2.6rem); line-height: 1.12; letter-spacing: -0.016em; }
+.lead { font-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.35rem); line-height: 1.55; max-width: 36rem; }
+.prose-vig { max-width: 34rem; text-wrap: pretty; }
+.legenda { font-size: 0.8125rem; line-height: 1.45; letter-spacing: 0.01em; }
+
+/* layout */
+.container-vig {
+  width: 100%;
+  max-width: calc(var(--container-vig) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.secao { padding-block: var(--space-secao); }
+.secao-curta { padding-block: var(--space-secao-curta); }
+
+/* link sublinhado com traço que cresce (sem seta) */
+.link-traco {
+  padding-bottom: 0.2rem;
+  box-decoration-break: clone;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  transition: background-size var(--duration-medio) var(--ease-vig), color var(--duration-rapido);
+}
+.link-traco:hover { background-size: 40% 1px; }
+@media (hover: none) { .link-traco:hover { background-size: 100% 1px; } }
+
+/* botão */
+.btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 3.1rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-fino);
+  font-weight: 500;
+  font-size: 0.9875rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  overflow: hidden;
+  transition: color var(--duration-rapido) ease, border-color var(--duration-rapido) ease;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateX(-101%);
+  transition: transform var(--duration-medio) var(--ease-vig);
+}
+.btn:hover::before { transform: translateX(0); }
+.btn .btn-traco { display: block; width: 1.6rem; height: 1px; background: currentColor; transform: scaleX(0.55); transform-origin: left; transition: transform var(--duration-medio) var(--ease-vig); }
+.btn:hover .btn-traco { transform: scaleX(1); }
+
+.btn-ouro { background: var(--color-ouro); color: var(--color-grafite-fundo); }
+.btn-ouro::before { background: var(--color-branco); }
+
+.btn-grafite { background: var(--color-grafite-fundo); color: var(--color-branco); }
+.btn-grafite::before { background: var(--color-ouro); }
+.btn-grafite:hover { color: var(--color-grafite-fundo); }
+
+.btn-contorno { border: 1px solid var(--line); color: var(--fg); }
+.btn-contorno::before { background: var(--fg); }
+.btn-contorno:hover { color: var(--color-grafite-fundo); border-color: var(--fg); }
+.tom-claro .btn-contorno:hover,
+.tom-branco .btn-contorno:hover { color: var(--color-branco); }
+}
+
+/* ==========================================================================
+   Hero com vídeo de fundo. Movimento 100% CSS no texto (não atrasa o LCP);
+   o vídeo é montado depois, só quando permitido (ver HeroVideo).
+   ========================================================================== */
+@keyframes vig-subir {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes vig-pagina {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mascara-palavra { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.hero-palavra { display: inline-block; animation: vig-subir 0.9s var(--ease-vig) both; animation-delay: calc(0.2s + var(--i, 0) * 45ms); }
+.hero-aparece { animation: vig-subir 0.9s var(--ease-vig) both; animation-delay: var(--d, 0.7s); }
+.pagina-entra { animation: vig-pagina 0.5s ease both; }
+
+/* sem vídeo (ou antes de ele carregar): uma única poça de luz champagne sobre grafite */
+.hero-sem-video {
+  background:
+    radial-gradient(70% 90% at 78% 40%, rgb(197 160 89 / 0.2), transparent 62%),
+    var(--color-grafite-fundo);
+}
+/* véu: só o necessário para o texto ler; o vídeo continua sendo percebido */
+.hero-veu {
+  background:
+    linear-gradient(to bottom, rgb(18 18 18 / 0.5), transparent 24%),
+    linear-gradient(to top, rgb(18 18 18 / 0.8), rgb(18 18 18 / 0.34) 40%, transparent 66%),
+    linear-gradient(to right, rgb(18 18 18 / 0.64), rgb(18 18 18 / 0.3) 40%, transparent 66%);
+}
+@media (max-width: 767px) {
+  .hero-veu {
+    background:
+      linear-gradient(to bottom, rgb(18 18 18 / 0.5), transparent 22%),
+      linear-gradient(to top, rgb(18 18 18 / 0.88), rgb(18 18 18 / 0.5) 45%, transparent 78%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-palavra,
+  .hero-aparece,
+  .pagina-entra { animation: none !important; }
+}
+
+/* placeholder de foto: bloco honesto, não imagem falsa */
+@layer components {
+.placeholder-foto {
+  position: relative;
+  background: var(--surface);
+  border: 1px dashed rgb(197 160 89 / 0.45);
+}
+}
+
+/* evita scroll horizontal por qualquer sangria */
+html, body { overflow-x: clip; }
