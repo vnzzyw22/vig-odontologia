@@ -235,6 +235,8 @@ a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: rg
     radial-gradient(70% 90% at 78% 40%, rgb(197 160 89 / 0.2), transparent 62%),
     var(--color-grafite-fundo);
 }
+/* sombra de leitura: segura o contraste onde o texto cruza partes claras do vídeo */
+.hero-texto { text-shadow: 0 1px 2px rgb(0 0 0 / 0.25), 0 0 28px rgb(0 0 0 / 0.38); }
 /* véu: só o necessário para o texto ler; o vídeo continua sendo percebido */
 .hero-veu {
   background:

@@ -53,9 +53,9 @@ export function Hero() {
       )}
 
       <div className="container-vig pb-[calc(2.5rem+env(safe-area-inset-bottom))] pt-[7rem] sm:pb-[calc(3.5rem+env(safe-area-inset-bottom))] lg:pb-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-10">
           <div className="max-w-[44rem]">
-            <h1 id="titulo-hero" className="display-xl max-w-[15ch]" aria-label={titulo}>
+            <h1 id="titulo-hero" className="display-xl hero-texto max-w-[15ch]" aria-label={titulo}>
               {palavras.map((p, i) => (
                 <Fragment key={i}>
                   <span aria-hidden="true" className="hero-palavra" style={{ ["--i" as string]: i }}>
@@ -66,7 +66,7 @@ export function Hero() {
               ))}
             </h1>
 
-            <p className="lead hero-aparece mt-6 !text-white/85 sm:mt-8" style={{ ["--d" as string]: "0.7s" }}>
+            <p className="lead hero-texto hero-aparece mt-6 !text-white/85 sm:mt-8" style={{ ["--d" as string]: "0.7s" }}>
               Implantes, próteses e estética dental com o Dr. Vinícius Lara e a Dra. Vidian Lara, em Maringá.
             </p>
 
@@ -84,7 +84,7 @@ export function Hero() {
           </div>
 
           <dl
-            className="hero-aparece space-y-1 text-[0.875rem] text-white/75 lg:text-right"
+            className="hero-aparece hero-texto space-y-1 text-[0.875rem] text-white/80"
             style={{ ["--d" as string]: "1.1s" }}
           >
             <div>

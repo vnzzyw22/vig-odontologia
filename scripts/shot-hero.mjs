@@ -2,7 +2,7 @@
 import { chromium } from "playwright-core";
 
 const prefixo = process.argv[2] ?? "h";
-const tamanhos = [[1440, 900, "desk"], [820, 1180, "tablet"]];
+const tamanhos = [[1920, 1080, "wide"], [1440, 900, "desk"], [820, 1180, "tablet"], [390, 844, "mob"], [360, 640, "mobp"]];
 const b = await chromium.launch({ channel: "chrome", args: ["--autoplay-policy=no-user-gesture-required"] });
 for (const [w, h, n] of tamanhos) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: w < 700, hasTouch: w < 700 });

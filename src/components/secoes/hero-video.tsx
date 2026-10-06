@@ -14,7 +14,7 @@ function assinar(cb: () => void) {
 /**
  * Vídeo de fundo da Hero. Só existe no cliente e só quando permitido: sem prefers-reduced-motion e
  * sem economia de dados. Antes disso (e para quem não pode ver movimento) fica o fundo estático
- * renderizado no servidor. Usa o vídeo mobile em telas < 768px. Sem biblioteca: um <video> nativo
+ * renderizado no servidor. Usa o vídeo mobile em telas < 768px. Em loop; a transição fim para começo está embutida no arquivo (scripts/hero-video.mjs). Sem biblioteca: um <video> nativo
  * que aparece em fade quando já pode tocar (posição absoluta, então sem CLS).
  */
 export function HeroVideo({ desktop, mobile }: { desktop: string; mobile: string }) {
